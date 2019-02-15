@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Gaming Table</title>
+    <link rel="stylesheet" href="css/tachyons.css">
+    <style>
+        #outgoing {
+            width: 600px;
+            word-wrap: break-word;
+        }
+        #initiator:target {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-
+<div id="simple_peer_container">
+    <form>
+        <textarea id="incoming" title="incoming"></textarea>
+        <button type="submit">submit</button>
+    </form>
+    <p id="initiator" class="dn">I'm the initiator!</p>
+    <textarea id="outgoing"></textarea>
+    <button id="copy_json">Copy to Clipboard</button>
+</div>
+<script src="js/libraries/simplepeer.min.js"></script>
+<script src="js/simple_peer.js"></script>
+<script src="js/Data.js"></script>
 </body>
 </html>

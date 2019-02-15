@@ -15,6 +15,7 @@ https://github.com/feross/simple-peer
 
  */
 
+// TODO: change `location.hash === '#initiator'` to be true or false based on a user selection (button)
 var p = new SimplePeer({initiator: location.hash === '#initiator', trickle: false});
 
 p.on('error', function (err) {
@@ -23,7 +24,7 @@ p.on('error', function (err) {
 
 p.on('signal', function (data) {
     console.log('SIGNAL', JSON.stringify(data));
-    document.querySelector('#outgoing').textContent = JSON.stringify(data);
+    document.querySelector('#outgoing').value = JSON.stringify(data);
 });
 
 document.querySelector('form').addEventListener('submit', function (ev) {
@@ -38,4 +39,12 @@ p.on('connect', function () {
 
 p.on('data', function (data) {
     console.log('data: ' + data);
+});
+
+// Copies the SimplePeer signal key thing
+var copyButton = document.querySelector('#copy_json');
+copyButton.addEventListener('click', function () {
+    let outgoingText = document.querySelector('#outgoing');
+    outgoingText.select();
+    document.execCommand('copy');
 });
