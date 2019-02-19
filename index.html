@@ -14,17 +14,22 @@
     </style>
 </head>
 <body>
+<div id="connector_prompt">
+    <h2 class="tc helvetica">Are you hosting or joining?</h2>
+    <button class="js-initiator  ma3">Host</button>
+    <button class="js-receiver ma3">Join</button>
+</div>
 <div id="simple_peer_container">
-    <form>
+    <form type="post">
         <textarea id="incoming" title="incoming"></textarea>
         <button type="submit">submit</button>
     </form>
     <p id="initiator" class="dn">I'm the initiator!</p>
-    <textarea id="outgoing"></textarea>
+    <textarea id="outgoing" title="Give this text to your friend"></textarea>
     <button id="copy_json">Copy to Clipboard</button>
 </div>
+<script src="js/User.js"></script>
 <script src="js/libraries/simplepeer.min.js"></script>
 <script src="js/simple_peer.js"></script>
-<script src="js/Data.js"></script>
 </body>
 </html>
